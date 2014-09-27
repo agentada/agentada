@@ -12,27 +12,30 @@ module.exports = {
     } ).exec( function( err, newDay ) {
       if( err ) return res.json( err );
 
-      Event.create( {
-        day: newDay,
-        title: "MY DOPE TITLE",
-        users: [ '54263706144869e62c50d5fb' ]
-      } ).exec( function( err, newEvent ) {
-        if( err ) return res.json( err );
-
-        Day.update( newDay.id, { events: [ newEvent ] } );
-
-        Itinerary.create( {
-          title: "TEST ITINERARY",
-          days: [ newDay.id ],
-          events: [ newEvent.id ]
-        } ).exec( function( err, newItin ) {
+      User.find().exec( function( err, users ) {
+        Event.create( {
+          day: newDay,
+          title: "MY DOPE TITLE",
+          users: users
+        } ).exec( function( err, newEvent ) {
           if( err ) return res.json( err );
 
-          Event.update( newEvent.id, { itinerary: newItin } );
+          Day.update( newDay.id, { events: [ newEvent ] } );
 
-          res.json( {
-            users: newItin.getUsers(),
-            events: newItin.events
+          Itinerary.create( {
+            title: "TEST ITINERARY",
+            days: [ newDay.id ],
+            events: [ newEvent.id ]
+          } ).exec( function( err, newItin ) {
+            if( err ) return res.json( err );
+
+            Event.update( newEvent.id, { itinerary: newItin } );
+
+            Itinerary.getUsers( newItin, function( err, users ) {
+              if( err ) return res.serverError( err );
+
+              res.json( newItin );
+            } );
           } );
         } );
       } );
@@ -51,5 +54,18 @@ module.exports = {
         res.json( users );
       } );
     } );
+  },
+
+  events: function( req, res ) {
+    if( !req.params.id ) return res.badRequest();
+
+    Itinerary
+      .findOne( req.params.id )
+      .populate( 'events')
+      .exec( function( err, itin )  {
+        if( err ) return res.serverError( err );
+
+        res.json( itin.events );
+      } );
   }
 };
