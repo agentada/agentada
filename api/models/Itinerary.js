@@ -21,6 +21,17 @@ module.exports = {
     events: {
       collection: 'event',
       via: 'itinerary'
+    },
+
+    /**
+     * Gets all users for the events for the itinerary.
+     */
+    getUsers: function() {
+      var users = [];
+      for( var i in this.events ) {
+        users.concat( this.events[ i ].users );
+      }
+      return users;
     }
   }
 };

@@ -14,7 +14,8 @@ module.exports = {
 
       Event.create( {
         day: newDay,
-        title: "MY DOPE TITLE"
+        title: "MY DOPE TITLE",
+        users: [ '54263706144869e62c50d5fb' ]
       } ).exec( function( err, newEvent ) {
         if( err ) return res.json( err );
 
@@ -29,9 +30,21 @@ module.exports = {
 
           Event.update( newEvent.id, { itinerary: newItin } );
 
-          res.json( 200 );
+          res.json( {
+            users: newItin.getUsers(),
+            events: newItin.events
+          } );
         } );
       } );
+    } );
+  },
+
+  users: function( req, res ) {
+    if( !req.params.id ) return res.serverError( new Error( "No id given." ) );
+
+    Itinerary.findOne( req.params.id ).exec( function( err, itin ) {
+      if( err ) return res.serverError( err );
+      else return res.json( itin.getUsers() );
     } );
   }
 };

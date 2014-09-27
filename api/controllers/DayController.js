@@ -6,5 +6,12 @@
  */
 
 module.exports = {
+  users: function( req, res ) {
+    if( !req.params.id ) return res.serverError( new Error( "No id given." ) );
 
+    Day.findOne( req.params.id ).exec( function( err, day ) {
+      if( err ) return res.serverError( err );
+      else return res.json( day.getUsers() );
+    } );
+  }
 };

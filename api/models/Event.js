@@ -18,6 +18,10 @@ module.exports = {
 
     day: {
       model: 'day'
+    },
+
+    users: {
+      collection: 'user'
     }
   }
 };
