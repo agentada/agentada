@@ -39,12 +39,7 @@
   <body>
 
 
-  <nav>
-    Agentada
-    <% if(!session.authenticated) { %>
-      <p><%= 'Logged out' %></p>
-    <% } %>
-  </nav>
+    <%- partial ('_navigation.ejs') %>
 
     <%- body %>
 
@@ -101,32 +96,34 @@
 
     <!--SCRIPTS-->
     <script src="/js/dependencies/sails.io.js"></script>
-    <script src="/js/dependencies/foundation.min.js"></script>
-    <script src="/js/dependencies/foundation/foundation.abide.js"></script>
-    <script src="/js/dependencies/foundation/foundation.accordion.js"></script>
-    <script src="/js/dependencies/foundation/foundation.alert.js"></script>
-    <script src="/js/dependencies/foundation/foundation.clearing.js"></script>
-    <script src="/js/dependencies/foundation/foundation.dropdown.js"></script>
-    <script src="/js/dependencies/foundation/foundation.equalizer.js"></script>
-    <script src="/js/dependencies/foundation/foundation.interchange.js"></script>
-    <script src="/js/dependencies/foundation/foundation.joyride.js"></script>
-    <script src="/js/dependencies/foundation/foundation.js"></script>
-    <script src="/js/dependencies/foundation/foundation.magellan.js"></script>
-    <script src="/js/dependencies/foundation/foundation.offcanvas.js"></script>
-    <script src="/js/dependencies/foundation/foundation.orbit.js"></script>
-    <script src="/js/dependencies/foundation/foundation.reveal.js"></script>
-    <script src="/js/dependencies/foundation/foundation.slider.js"></script>
-    <script src="/js/dependencies/foundation/foundation.tab.js"></script>
-    <script src="/js/dependencies/foundation/foundation.tooltip.js"></script>
-    <script src="/js/dependencies/foundation/foundation.topbar.js"></script>
-    <script src="/js/dependencies/vendor/fastclick.js"></script>
-    <script src="/js/dependencies/vendor/jquery.cookie.js"></script>
-    <script src="/js/dependencies/vendor/jquery.js"></script>
-    <script src="/js/dependencies/vendor/modernizr.js"></script>
-    <script src="/js/dependencies/vendor/placeholder.js"></script>
+    <script src="/js/dependencies/fastclick.js"></script>
+    <script src="/js/dependencies/jquery.js"></script>
+    <script src="/js/dependencies/modernizr.js"></script>
+    <script src="/js/foundation.min.js"></script>
+    <script src="/js/foundation/foundation.abide.js"></script>
+    <script src="/js/foundation/foundation.accordion.js"></script>
+    <script src="/js/foundation/foundation.alert.js"></script>
+    <script src="/js/foundation/foundation.clearing.js"></script>
+    <script src="/js/foundation/foundation.dropdown.js"></script>
+    <script src="/js/foundation/foundation.equalizer.js"></script>
+    <script src="/js/foundation/foundation.interchange.js"></script>
+    <script src="/js/foundation/foundation.joyride.js"></script>
+    <script src="/js/foundation/foundation.js"></script>
+    <script src="/js/foundation/foundation.magellan.js"></script>
+    <script src="/js/foundation/foundation.offcanvas.js"></script>
+    <script src="/js/foundation/foundation.orbit.js"></script>
+    <script src="/js/foundation/foundation.reveal.js"></script>
+    <script src="/js/foundation/foundation.slider.js"></script>
+    <script src="/js/foundation/foundation.tab.js"></script>
+    <script src="/js/foundation/foundation.tooltip.js"></script>
+    <script src="/js/foundation/foundation.topbar.js"></script>
+    <script src="/js/jquery.cookie.js"></script>
+    <script src="/js/vendor/placeholder.js"></script>
     <!--SCRIPTS END-->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-resource.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.min.js"></script>
+
+
   </body>
 </html>

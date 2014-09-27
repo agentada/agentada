@@ -9,7 +9,11 @@ module.exports = {
 
   index: function(req, res) {
     res.view({
-      user: req.user
+  		username: req.user
     });
+  },
+
+  createitinerary: function(req, res) {
+  	res.view();
   }
 };
