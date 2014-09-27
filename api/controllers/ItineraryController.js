@@ -61,5 +61,15 @@ module.exports = {
   },
   days: function( req, res ) {
     ControllerHelpers.apiGetter( 'Itinerary', 'days' )( req, res );
+  },
+
+  rhine: function( req, res ) {
+    RhineService.getClosestItems( 'water', function( err, results ) {
+      if( err ) return res.serverError( err );
+
+      res.json( results );
+    } );
+
+    sails.log.debug( "Rhining..." );
   }
 };
