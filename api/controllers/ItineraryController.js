@@ -5,6 +5,8 @@
  * @help        :: See http://links.sailsjs.org/docs/controllers
  */
 
+var moment = require( 'moment' );
+
 module.exports = {
   create_basic: function( req, res ) {
     Day.create( {
@@ -42,6 +44,57 @@ module.exports = {
     } );
   },
 
+  generate: function( req, res ) {
+    // TODO: Remove me
+    req.params.startDate = "2014-12-25";
+    req.params.endDate = "2014-12-30";
+    req.params.title = "DANK NUGGETS";
+    req.params.users = [ "542714994f18ae5979f22b43" ];
+
+    var itinerary = {
+      title: req.params.title,
+      days: []
+    };
+
+    var startDate = moment( req.params.startDate ),
+        endDate   = moment( req.params.endDate );
+
+    for( var curDate = moment( startDate.toDate() ); curDate <= endDate; curDate.add( 1, 'd' ) ) {
+
+      Day.create( {
+        date: curDate.toDate(),
+
+      } )
+      .exec( function( err, date ) {
+        if( err ) return res.serverError( err );
+
+        itinerary.days.push( date.id );
+
+        //TODO: Generate events
+        Event.create( {
+          title: "BUTT-TASTROPHE",
+          day: date.id,
+          users: req.params.users,
+          type: 'custom'
+        } )
+        .exec( function( err, event ) {
+          if( err ) return res.serverError( err );
+        } );
+
+        if( itinerary.days.length == ( endDate.date() - startDate.date() ) ) {
+
+          Itinerary
+            .create( itinerary )
+            .exec( function( err, itin ) {
+              if( err ) return res.serverError( err );
+
+              res.json( itin );
+            } );
+        }
+      } );
+    }
+  },
+
   users: function( req, res ) {
     if( !req.params.id ) return res.badRequest();
 
@@ -57,10 +110,17 @@ module.exports = {
   },
 
   events: function( req, res ) {
-    ControllerHelpers.apiGetter( 'Itinerary', 'events' )( req, res );
-  },
-  days: function( req, res ) {
-    ControllerHelpers.apiGetter( 'Itinerary', 'days' )( req, res );
+    if( !req.params.id ) return res.badRequest();
+
+    Itinerary.findOne( req.params.id ).exec( function( err, itin ) {
+      if( err ) return res.serverError( err );
+
+      Itinerary.getEvents( itin, function( err, events ) {
+        if( err ) return res.serverError( err );
+
+        res.json( events );
+      } );
+    } );
   },
 
   rhine: function( req, res ) {

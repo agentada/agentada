@@ -1,4 +1,4 @@
 module.exports.facebook = {
-  id: 'YOUR_ID_HERE',
-  secret: 'YOUR_SECRET_HERE'
+  id: process.env.API_KEY_FACEBOOK_ID || 'YOUR_ID_HERE',
+  secret: process.env.API_KEY_FACEBOOK_SECRET || 'YOUR_SECRET_HERE'
 };
