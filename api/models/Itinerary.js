@@ -23,7 +23,20 @@ module.exports = {
    * Gets all users for the events for the itinerary.
    */
   getUsers: function( itn, cb ) {
-    var users = [];
+    var users = {};
+
+    function unique( arr ) {
+      var found = [];
+      var vals = [];
+      for( var key in arr ) {
+        if( found.lastIndexOf( key ) === -1 ) {
+          found.push( key );
+          vals.push( arr[ key ] );
+        }
+      }
+
+      return vals;
+    }
 
     Itinerary.getEvents( itn, function( err, eventObjs, events ) {
       // Iterate over all events in the itinerary
@@ -35,7 +48,7 @@ module.exports = {
         // For each event, add it's users
         events.forEach( function( event, i ) {
           event.users.forEach( function( user, j ) {
-            users.push( user );
+            users[ user.id ] = user;
           } );
         } );
 
