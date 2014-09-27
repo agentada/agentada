@@ -17,15 +17,16 @@ module.exports = {
    * environment (see config/connections.js and config/models.js )           *
    ***************************************************************************/
 
-  models: {
-    connection: 'openshiftMongodbServer'
-  },
+  // models: {
+  //   connection: 'mongodbServer'
+  // },
 
   /***************************************************************************
    * Set the port in the production environment to 80                        *
    ***************************************************************************/
 
-  // port: 80,
+  port: process.env.OPENSHIFT_NODEJS_PORT || 80,
+  host: process.env.OPENSHIFT_NODEJS_IP,
 
   /***************************************************************************
    * Set the log level in production environment to "silent"                 *
