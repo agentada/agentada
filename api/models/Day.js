@@ -1,9 +1,9 @@
 /**
-* Day.js
-*
-* @description :: TODO: You might write a short summary of how this model works and what it represents here.
-* @docs        :: http://sailsjs.org/#!documentation/models
-*/
+ * Day.js
+ *
+ * @description :: TODO: You might write a short summary of how this model works and what it represents here.
+ * @docs        :: http://sailsjs.org/#!documentation/models
+ */
 
 module.exports = {
 
@@ -36,6 +36,17 @@ module.exports = {
       type: 'BOOLEAN',
       required: false,
       defaultsTo: false
+    },
+
+    /**
+     * Gets all users for the events for the day.
+     */
+    getUsers: function() {
+      var users = [];
+      for( var i in this.events ) {
+        users.concat( this.event[ i ].users );
+      }
+      return users;
     }
   }
 };
