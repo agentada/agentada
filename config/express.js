@@ -12,11 +12,13 @@ var verifyHandler = function(token, tokenSecret, profile, done) {
       if (user) {
         return done(null, user);
       } else {
+        sails.log.debug(profile);
 
         var data = {
           provider: profile.provider,
           uid: profile.id,
-          name: profile.displayName
+          name: profile.displayName,
+          interests: []
         };
 
         if (profile.emails && profile.emails[0] && profile.emails[0].value) {
@@ -29,8 +31,40 @@ var verifyHandler = function(token, tokenSecret, profile, done) {
           data.lastname = profile.name.familyName;
         }
 
-        User.create(data, function(err, user) {
-          return done(err, user);
+        RESTService.sendGetRequest( {
+          host : "graph.facebook.com",
+          port : 443,
+          path : "/v2.1/"+data.uid+"/likes?access_token="+token,
+          method : 'GET'
+        }, function(err, likes) {
+          if( !likes )
+          {
+            User.create(data, function(err, user) {
+              return done(err, user);
+            });
+          }
+          else
+          {
+            for( var i = 0; i < likes.data.length; i++ )
+            {
+              var interest = {
+                category: likes.data[i].category,
+                name: likes.data[i].name,
+                fbId: likes.data[i].id
+              }
+
+              Interest.create(interest, function(err, inter) {
+                data.interests.push(inter.id);
+
+                if( data.interests.length == likes.data.length )
+                {
+                  User.create(data, function(err, user) {
+                    return done(err, user);
+                  });
+                }
+              });
+            }
+          }
         });
       }
     });

@@ -10,11 +10,19 @@ module.exports = {
   adapter: 'mongodbServer',
 
   attributes: {
+    uid: {
+      type: 'STRING',
+      required: true,
+      unique: true
+    },
     provider: 'STRING',
-    uid: 'STRING',
     name: 'STRING',
     email: 'STRING',
     firstname: 'STRING',
-    lastname: 'STRING'
+    lastname: 'STRING',
+    interests: {
+      collection: 'interest',
+      via: 'owner'
+    }
   }
 };

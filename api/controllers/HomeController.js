@@ -8,8 +8,14 @@
 module.exports = {
 
   index: function(req, res) {
-    res.view({
-      user: req.user
-    });
+  	User.findOne( req.user.id )
+  		.populate( 'interests' )
+  		.exec( function( err, user ) {
+  			if( err ) return res.serverError( err );
+
+		    res.view({
+		      user: user
+		    });
+  		} );
   }
 };
