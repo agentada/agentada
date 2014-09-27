@@ -10,4 +10,4 @@ deploy:
   domain: coldencullen
   on:
     branch: master
-    repo: agentada/backend
+    repo: agentada/agentada
