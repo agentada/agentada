@@ -7,7 +7,7 @@
 
 module.exports = {
   users: function( req, res ) {
-    if( !req.params.id ) return res.serverError( new Error( "No id given." ) );
+    if( !req.params.id ) return res.badRequest();
 
     Event.findOne( req.params.id ).exec( function( err, event ) {
       if( err ) return res.serverError( err );

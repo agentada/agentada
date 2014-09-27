@@ -40,11 +40,16 @@ module.exports = {
   },
 
   users: function( req, res ) {
-    if( !req.params.id ) return res.serverError( new Error( "No id given." ) );
+    if( !req.params.id ) return res.badRequest();
 
     Itinerary.findOne( req.params.id ).exec( function( err, itin ) {
       if( err ) return res.serverError( err );
-      else return res.json( itin.getUsers() );
+
+      Itinerary.getUsers( itin, function( err, users ) {
+        if( err ) return res.serverError( err );
+
+        res.json( users );
+      } );
     } );
   }
 };
