@@ -7,7 +7,7 @@
 
 module.exports = {
 
-  adapter: 'localMongodbServer',
+  adapter: 'mongodbServer',
 
   attributes: {
     provider: 'STRING',
