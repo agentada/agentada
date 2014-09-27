@@ -1,8 +1,8 @@
 {
   "name": "Agentada",
-  "private": true,
-  "version": "0.0.0",
-  "description": "a Sails application",
+  "private": false,
+  "version": "0.1.0",
+  "description": "The backend for Agentada.",
   "keywords": [],
   "dependencies": {
     "ejs": "~0.8.4",
@@ -22,7 +22,11 @@
     "rc": "~0.5.0",
     "sails": "~0.10.5",
     "sails-disk": "~0.10.0",
-    "sails-mongo": "^0.10.4"
+    "sails-mongo": "^0.10.4",
+    "passport": "0.2.1",
+    "passport-local": "1.0.0",
+    "passport-facebook": "^1.0.3",
+    "connect-mongo": "^0.4.1"
   },
   "scripts": {
     "start": "node app.js",
@@ -33,6 +37,6 @@
     "type": "git",
     "url": "git://github.com/anonymous node/sails user/Agentada.git"
   },
-  "author": "anonymous node/sails user",
-  "license": ""
+  "author": "Agentada Team",
+  "license": "MIT"
 }
