@@ -17,7 +17,13 @@
     <p>Don't worry, we've got your back.</p> -->
 
     <div class="content">
-      <h1 id="main-title">Please sign in</h1>
+
+      <div>
+        <input type="text" ng-model="name" placeholder="Enter your name...">
+
+      </div>
+
+      <h1 id="main-title">Please sign in, {{name}}</h1>
 
       <a href="/auth/github/" class="btn">with GitHub</a>
       <a href="/auth/facebook/" class="btn">with Facebook</a>
