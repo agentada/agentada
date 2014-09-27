@@ -49,6 +49,7 @@ module.exports = {
     req.params.startDate = "2014-12-25";
     req.params.endDate = "2014-12-30";
     req.params.title = "DANK NUGGETS";
+    req.params.users = [ "542714994f18ae5979f22b43" ];
 
     var itinerary = {
       title: req.params.title,
@@ -70,6 +71,15 @@ module.exports = {
         itinerary.days.push( date.id );
 
         //TODO: Generate events
+        Event.create( {
+          title: "BUTT-TASTROPHE",
+          day: date.id,
+          users: req.params.users,
+          type: 'custom'
+        } )
+        .exec( function( err, event ) {
+          if( err ) return res.serverError( err );
+        } );
 
         if( itinerary.days.length == ( endDate.date() - startDate.date() ) ) {
 
@@ -100,10 +110,17 @@ module.exports = {
   },
 
   events: function( req, res ) {
-    ControllerHelpers.apiGetter( 'Itinerary', 'events' )( req, res );
-  },
-  days: function( req, res ) {
-    ControllerHelpers.apiGetter( 'Itinerary', 'days' )( req, res );
+    if( !req.params.id ) return res.badRequest();
+
+    Itinerary.findOne( req.params.id ).exec( function( err, itin ) {
+      if( err ) return res.serverError( err );
+
+      Itinerary.getEvents( itin, function( err, events ) {
+        if( err ) return res.serverError( err );
+
+        res.json( events );
+      } );
+    } );
   },
 
   rhine: function( req, res ) {
