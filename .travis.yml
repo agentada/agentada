@@ -1,0 +1,13 @@
+language: node_js
+node_js:
+- "0.10"
+deploy:
+  provider: openshift
+  user: coldencullen@gmail.com
+  password:
+    secure: XzKK6ktPxS2dQgUKSmPqCTqlaGC3cTGA9509J1Ykz4v34qFUxECIrguQPVtwisxYj8S0OXxbSmK5e/tAJCqJ1EsaIKnCx0+Di6uuAYm9R3pWXGnx2+913faG0A1yD1JETV+2D5jhK49U21lF9xZPTc2Q6bm7U4fOsSX7II360Bs=
+  app: agentada
+  domain: coldencullen
+  on:
+    branch: master
+    repo: agentada/backend
