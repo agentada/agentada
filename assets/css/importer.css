@@ -296,6 +296,10 @@ div.center {
   height: 500px;
   width: 700px;
   position: relative;
+  top: 10%;
+  -webkit-transform: translateY(20%);
+  -ms-transform: translateY(20%);
+  transform: translateY(20%);
 }
 #image {
   position: absolute;
