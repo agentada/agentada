@@ -51,10 +51,10 @@ module.exports.connections = {
 
   openshiftMongodbServer: {
     adapter: 'sails-mongo',
-    host: 'localhost',
-    port: 27017,
-    // user: 'username',
-    // password: 'password',
+    host: process.env.OPENSHIFT_MONGODB_DB_HOST,
+    port: process.env.OPENSHIFT_MONGODB_DB_PORT,
+    user: process.env.OPENSHIFT_MONGODB_DB_USER,
+    password: process.env.OPENSHIFT_MONGODB_DB_PASSWORD,
     database: 'agentada'
   },
 
