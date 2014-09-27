@@ -1,0 +1,12 @@
+<nav>
+	<div class="left">
+		<p>Agentada (Logo)<p>
+	</div>
+	<div class="right">
+		<% if(!session.authenticated) { %>
+			<p>Log in</p>
+		<% } else { %>
+			<p>My Account</p>
+		<% } %>
+	</div>
+</nav>

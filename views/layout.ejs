@@ -39,12 +39,7 @@
   <body>
 
 
-  <nav>
-    Agentada
-    <% if(!session.authenticated) { %>
-      <p><%= 'Logged out' %></p>
-    <% } %>
-  </nav>
+    <%- partial ('_navigation.ejs') %>
 
     <%- body %>
 
