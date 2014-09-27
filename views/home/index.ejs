@@ -6,6 +6,18 @@
   }, 0);
 </script>
 
+<% if(!session.authenticated) { %>
+<%- partial ('../_about.ejs') %>
+<% } else { %>
+
+<div class="row">
+  <div class="small-12 columns">
+    Your itineraries.
+  </div>
+</div>
+
+<% } %>
+<!--
 <div class="default-page">
   <div class="header">
     <h1 id="main-title" class="container"><%= __('A brand new app.') %></h1>
@@ -13,7 +25,7 @@
     <h3 class="container">You're looking at: <code><%= view.pathFromApp + '.' + view.ext %></code></h3>
   </div>
   <div class="main container clearfix">
-
+  <% if(session.authenticated) { %>
     <div class="content">
       <h1 id="main-title">Hi <%= user.name %>,</h1>
 
@@ -76,8 +88,9 @@
         </li>
       </ul>
     </div>
+    <% } %>
     <div class="links">
-      <!-- <h3>Links</h3> -->
+      <!-- <h3>Links</h3> --
       <ul class="link-list">
 
         <h4>Docs</h4>
@@ -98,3 +111,4 @@
     </div>
   </div>
 </div>
+-->

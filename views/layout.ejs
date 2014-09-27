@@ -29,7 +29,10 @@
     -->
 
     <!--STYLES-->
+    <link rel="stylesheet" href="/styles/foundation.css">
+    <link rel="stylesheet" href="/styles/foundation.min.css">
     <link rel="stylesheet" href="/styles/importer.css">
+    <link rel="stylesheet" href="/styles/normalize.css">
     <!--STYLES END-->
   </head>
 
@@ -38,6 +41,9 @@
 
   <nav>
     Agentada
+    <% if(!session.authenticated) { %>
+      <p><%= 'Logged out' %></p>
+    <% } %>
   </nav>
 
     <%- body %>
@@ -95,6 +101,29 @@
 
     <!--SCRIPTS-->
     <script src="/js/dependencies/sails.io.js"></script>
+    <script src="/js/dependencies/foundation.min.js"></script>
+    <script src="/js/dependencies/foundation/foundation.abide.js"></script>
+    <script src="/js/dependencies/foundation/foundation.accordion.js"></script>
+    <script src="/js/dependencies/foundation/foundation.alert.js"></script>
+    <script src="/js/dependencies/foundation/foundation.clearing.js"></script>
+    <script src="/js/dependencies/foundation/foundation.dropdown.js"></script>
+    <script src="/js/dependencies/foundation/foundation.equalizer.js"></script>
+    <script src="/js/dependencies/foundation/foundation.interchange.js"></script>
+    <script src="/js/dependencies/foundation/foundation.joyride.js"></script>
+    <script src="/js/dependencies/foundation/foundation.js"></script>
+    <script src="/js/dependencies/foundation/foundation.magellan.js"></script>
+    <script src="/js/dependencies/foundation/foundation.offcanvas.js"></script>
+    <script src="/js/dependencies/foundation/foundation.orbit.js"></script>
+    <script src="/js/dependencies/foundation/foundation.reveal.js"></script>
+    <script src="/js/dependencies/foundation/foundation.slider.js"></script>
+    <script src="/js/dependencies/foundation/foundation.tab.js"></script>
+    <script src="/js/dependencies/foundation/foundation.tooltip.js"></script>
+    <script src="/js/dependencies/foundation/foundation.topbar.js"></script>
+    <script src="/js/dependencies/vendor/fastclick.js"></script>
+    <script src="/js/dependencies/vendor/jquery.cookie.js"></script>
+    <script src="/js/dependencies/vendor/jquery.js"></script>
+    <script src="/js/dependencies/vendor/modernizr.js"></script>
+    <script src="/js/dependencies/vendor/placeholder.js"></script>
     <!--SCRIPTS END-->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-resource.min.js"></script>
