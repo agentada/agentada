@@ -44,7 +44,7 @@ module.exports = {
     getUsers: function() {
       var users = [];
       for( var i in this.events ) {
-        users.concat( this.event[ i ].users );
+        users.concat( this.events[ i ].users );
       }
       return users;
     }

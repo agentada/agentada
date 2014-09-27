@@ -13,5 +13,9 @@ module.exports = {
       if( err ) return res.serverError( err );
       else return res.json( day.getUsers() );
     } );
+  },
+
+  events: function( req, res ) {
+    ControllerHelpers.apiGetter( 'Day', 'events' )( req, res );
   }
 };

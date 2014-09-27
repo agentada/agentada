@@ -57,15 +57,9 @@ module.exports = {
   },
 
   events: function( req, res ) {
-    if( !req.params.id ) return res.badRequest();
-
-    Itinerary
-      .findOne( req.params.id )
-      .populate( 'events')
-      .exec( function( err, itin )  {
-        if( err ) return res.serverError( err );
-
-        res.json( itin.events );
-      } );
+    ControllerHelpers.apiGetter( 'Itinerary', 'events' )( req, res );
+  },
+  days: function( req, res ) {
+    ControllerHelpers.apiGetter( 'Itinerary', 'days' )( req, res );
   }
 };
