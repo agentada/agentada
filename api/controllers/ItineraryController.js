@@ -49,7 +49,25 @@ module.exports = {
     req.params.startDate = "2014-12-25";
     req.params.endDate = "2014-12-30";
     req.params.title = "DANK NUGGETS";
-    req.params.users = [ "542714994f18ae5979f22b43" ];
+    req.params.users = [ "5427a1171f84cf94157b834a" ];
+
+    var aggregates = { };
+    var thingsWeCareAbout = ["Movie", "Musician/band"];
+    User.find(  )
+        .populate( 'interests' )
+        .exec( function( err, myUsrs ) {
+          myUsrs.forEach( function( usr ) {
+            thingsWeCareAbout.forEach( function( thing ) {
+              if( !aggregates.hasOwnProperty( thing ) )
+                aggregates[ thing ] = 0;
+
+              sails.log.debug(usr.interests[0], thing);
+              aggregates[ thing ] += usr.interests[0][ thing ] / myUsrs.length;
+            } );
+          } );
+
+          sails.log.debug( aggregates );
+        } );
 
     var itinerary = {
       title: req.params.title,

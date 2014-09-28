@@ -25,7 +25,9 @@ module.exports = {
         if( !likes )
         {
           sails.log.debug( "Now we outta likes. Total: " + options.totalLikes );
-          User.update(user.id, { interests: options.interestsAggregate, totalInterests: options.totalLikes }).exec(console.log);
+          User.update(user.id, { interests: UserInterests.convertToPercentage(
+            options.interestsAggregate, options.totalLikes), 
+          totalInterests: options.totalLikes }).exec(console.log);
           return false;
         }
         else
@@ -46,5 +48,14 @@ module.exports = {
         }
       });
     });
+  },
+
+  convertToPercentage: function(interests, total) {
+    var interestPercent = {};
+    for(var key in interests)
+    {
+      interestPercent[key] = interests[key] / total * 100;
+    }
+    return interestPercent;
   }
 }
