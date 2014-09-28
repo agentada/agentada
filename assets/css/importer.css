@@ -321,10 +321,6 @@ div.center {
   height: 500px;
   width: 700px;
   position: relative;
-  top: 10%;
-  -webkit-transform: translateY(20%);
-  -ms-transform: translateY(20%);
-  transform: translateY(20%);
 }
 #image {
   position: absolute;
@@ -564,7 +560,12 @@ li.multiList:nth-child(odd) {
   padding: 2px;
   font-weight: 800;
 }
-button.button_add {
+.button_add {
+  background-color: #92d4f5;
+  height: 10px;
+  width: 20px;
   font-size: 18px;
-  padding: 0px 15px 0px 15px;
+  position: relative;
+  top: 0px;
+  padding: 20px 15px 20px 15px;
 }
