@@ -20,9 +20,11 @@ module.exports = {
     email: 'STRING',
     firstname: 'STRING',
     lastname: 'STRING',
+    fbToken: 'STRING',
     interests: {
       collection: 'interest',
       via: 'owner'
-    }
+    },
+    totalInterests: 'INTEGER'
   }
 };

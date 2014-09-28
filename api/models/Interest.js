@@ -1,11 +1,8 @@
 module.exports = {
 
-	adapter: 'mongodbServer',
-
     attributes: {
         category:'STRING',
-        name:'STRING',
-        id: 'STRING',
+        count: 'INTEGER',
         owner: {
             model:'user'
         }
