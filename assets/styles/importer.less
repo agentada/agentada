@@ -27,16 +27,52 @@
 //
 // etc.
 
+@nav-height: 100px;
+
+.round-image()
+{
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+}
+.round-image {
+  .round-image();
+}
+
+.block {
+  display: block;
+}
+.inline-block {
+  display: inline-block;
+}
+
+.border-radius(@radius) {
+  -webkit-border-radius: @radius;
+     -moz-border-radius: @radius;
+      -ms-border-radius: @radius;
+          border-radius: @radius;
+}
+
+
 html, body {
   text-align: left;
   font-size: 1em;
   background:#BAE3F8;
 }
 
-html, body, img, form, textarea, input, fieldset, div, p, div, ul, li, ol, dl, dt, dd, h1, h2, h3, h4, h5, h6, pre, code {
+html, img, form, textarea, input, fieldset, div, p, div, ul, li, ol, dl, dt, dd, h1, h2, h3, h4, h5, h6, pre, code {
   margin: 0;
   padding: 0
 }
+
+body {
+  padding-top: @nav-height;
+  margin: 0;
+  font-family: "Open Sans", Arial, sans-serif;
+  font-weight: 300;
+}
+
 
 ul, li {
   list-style: none
@@ -77,11 +113,6 @@ div.clear {
   height: 0;
   line-height: 0;
   visibility: hidden
-}
-
-body {
-  font-family: "Open Sans", Arial, sans-serif;
-  font-weight: 300;
 }
 
 .top-bar {
@@ -197,10 +228,8 @@ blockquote span {
   padding-right: 5px;
 }
 
-.content {
+.content2 {
   padding: 25px 75px 25px 0;
-  width: 70%;
-  float: left;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
@@ -393,19 +422,18 @@ div.center {
 }
 
 img.logo_top{
-  padding: 20px;
-  width: 110px;
+  //width: 110px;
 }
 
 img.prof_top{
   display: inline-block;
-  width: 110px;
-  padding: 20px;
+  //width: 110px;
 }
 
 div.prof_top{
   display:inline-block;
 }
+
 form.create {
   position:absolute;
   text-align: left;
@@ -421,4 +449,150 @@ input.create_form {
 input.create_form_lg {
   display:inline-block;
   width: 600px;
+
+
+nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: block;
+  height: @nav-height;
+  padding: 10px;
+
+  img {
+    display: inline-block;
+    height: @nav-height - 40px;
+  }
+
+
+}
+
+.middle-align {
+  vertical-align: middle;
+}
+
+.right-align {
+  text-align: right;
+}
+
+.wide {
+  width: 100%;
+  max-width: 100%;
+}
+.tall {
+  height: 100%;
+}
+
+.column-title {
+  width: 100%;
+  height: 40px;
+  padding: 0 10px;
+  font-size: 24px;
+  line-height: 40px;
+  vertical-align: middle;
+  background-color: #777;
+  color: #fff;
+  overflow: hidden;
+  word-wrap: breakword;
+}
+
+.itinerary-column {
+  position: relative;
+  display: block;
+  float: left;
+  height: 100%;
+  max-height: 100%;
+  background-color: #fff;
+  border-right: solid 1px #333;
+  &:nth-child(3){
+    border: none;
+  }
+
+  .column-title {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 40px;
+    padding: 0 10px;
+    font-size: 24px;
+    line-height: 40px;
+    vertical-align: middle;
+    background-color: #444;
+    color: #fff;
+    overflow: hidden;
+    word-wrap: breakword;
+    z-index: 5;
+  }
+
+  .secondary-title {
+    display: block;
+    width: 100%;
+    height: 24px;
+    padding: 0 10px;
+    font-size: 16px;
+    line-height: 24px;
+    vertical-align: middle;
+    background-color: #888;
+    color: #fff;
+    overflow: hidden;
+    word-wrap: breakword;
+  }
+
+  .column-body {
+    position: relative;
+    padding-top: 40px;
+    display: block;
+    width: 100%;
+    overflow: auto;
+    height: 100%;
+
+    ol {
+      li {
+        display: block;
+        width: 100%;
+        padding: 5px;
+        border-bottom: 1px solid #aaa;
+        &:last-child {
+          //border: none;
+        }
+        &:hover {
+          background-color: #ddd;
+          cursor: pointer;
+        }
+        &.active {
+          background-color: #ccc;
+          &:hover {
+            background-color: #ccc;
+            cursor: default;
+          }
+        }
+      }
+    }
+  }
+}
+
+.agentada-panel {
+  .border-radius(4px);
+  width: 100%;
+  overflow: hidden;
+  //-bottom: 20px;
+
+  & .title {
+    //position: absolute;
+    //top: 0;
+    color: #fff;
+    background-color: #00F;
+  }
+
+  & .body {
+    background-color: #fff;
+  }
+
+  & .content {
+    width: 100%;
+    float: none;
+    padding: 5px 10px;
+  }
+
 }
