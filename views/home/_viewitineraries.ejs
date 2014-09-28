@@ -27,7 +27,7 @@
 
         <div class="column-body" >
             <ol>
-                <li ng-repeat="event in events"><p class="title">{{event.title}}</p><p class="dates">Date &amp; Time: {{event.day.date}}</p><p class="time">Type: {{type}}</p></li>
+                <li ng-repeat="event in events" class="itineraryList"><p class="title">{{event.title}}</p><p class="dates">Date &amp; Time: {{event.createdAt}}</p><p class="time">Type: {{event.type}}</p></li>
             </ol>
         </div>
 
@@ -48,10 +48,10 @@
                     who
                 </div>
                 <div class="body content">
-                    <ul class="small-block-grid-5">
-                        <li><a href="#"><img src="http://i.imgur.com/3R2McZq.jpg" class="round-image"/></a></li>
-                        <li><a href="#"><img src="http://i.imgur.com/3R2McZq.jpg" class="round-image"/></a></li>
-                        <li><a href="#"><img src="http://i.imgur.com/3R2McZq.jpg" class="round-image"/></a></li>
+                    <ul class="small-block-grid-3">
+                        <li><a href="#"><img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xpf1/v/t1.0-1/p100x100/10478155_10204240270072492_404366977784193901_n.jpg?oh=0f8c85f334868610cd20e229b5653544&oe=54BF6450&__gda__=1418192700_316f151b884f1cbbe3e4412e5dc8a83b" class="round-image"/></a></li>
+                        <li><a href="#"><img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xap1/v/t1.0-1/s100x100/10636208_10152267670542016_7318983374927864342_n.jpg?oh=f8816bd3601d699605902e6771d3d613&oe=54BE80EB&__gda__=1422232382_005d770cdc68a6c5dd20b339f925f0f2" class="round-image"/></a></li>
+                        <li><a href="#"><img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xap1/v/t1.0-1/s100x100/1157734_673768919318213_428454518_n.jpg?oh=cd1d5cdac39673fd3e85dc7f67a81f29&oe=548D305F&__gda__=1421822088_dd5df218c2212938197ac1ec801ac2c9" class="round-image"/></a></li>
                     </ul>
                 </div>
             </div>
@@ -60,8 +60,8 @@
                     what
                 </div>
                 <div class="body content">
-                    <ul class="small-block-grid-3">
-                        <li><button class="expand tiny rounded tag">Streaking</button></li>
+                    <ul class="small-block-grid-2">
+                        <li><button class="expand tiny rounded tag">Coding</button></li>
                         <li><button class="expand tiny rounded tag">Hiking</button></li>
                     </ul>
                 </div>
@@ -71,8 +71,8 @@
                     where
                 </div>
                 <div class="body content">
-                    <p>Start</p>
-                    <p>End</p>
+                    <p>Start:</p>
+                    <p>End:</p>
                 </div>
             </div>
             <div class="agentada-panel">
@@ -80,8 +80,8 @@
                    when
                 </div>
                 <div class="body content">
-                    <p>Start</p>
-                    <p>End</p>
+                    <p>Start:</p>
+                    <p>End:</p>
                 </div>
             </div>
             <div class="agentada-panel">
@@ -89,6 +89,7 @@
                     options
                 </div>
                 <div class="body content">
+                    <p>Coming soon!</p>
                 </div>
             </div>
             <div class="agentada-panel">
@@ -96,6 +97,7 @@
                     share
                 </div>
                 <div class="body content">
+                    <p>Coming soon!</p>
                 </div>
             </div>
             <div class="agentada-panel">
@@ -103,6 +105,7 @@
                     map
                 </div>
                 <div class="body content">
+                    <p>Coming soon!</p>
                 </div>
             </div>
         </div>

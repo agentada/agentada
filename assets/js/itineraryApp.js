@@ -27,8 +27,8 @@ angular.module('itineraryApp', [])
 
     $scope.getEvents = function() {
         console.log($scope.currentItinerary.id);
-        $http.post('/itinerary/events', {id: $scope.currentItinerary.id+""}).success( function(data, status, headers, config) {
-            $scope.itineraries = data;
+        $http.get('/itinerary/events/' + $scope.currentItinerary.id).success( function(data, status, headers, config) {
+            
             if(data.length > 0) {
                 $scope.events = data;
             }
