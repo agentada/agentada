@@ -27,16 +27,52 @@
 //
 // etc.
 
+@nav-height: 100px;
+
+.round-image()
+{
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+}
+.round-image {
+  .round-image();
+}
+
+.block {
+  display: block;
+}
+.inline-block {
+  display: inline-block;
+}
+
+.border-radius(@radius) {
+  -webkit-border-radius: @radius;
+     -moz-border-radius: @radius;
+      -ms-border-radius: @radius;
+          border-radius: @radius;
+}
+
+
 html, body {
   text-align: left;
   font-size: 1em;
   background:#BAE3F8;
 }
 
-html, body, img, form, textarea, input, fieldset, div, p, div, ul, li, ol, dl, dt, dd, h1, h2, h3, h4, h5, h6, pre, code {
+html, img, form, textarea, input, fieldset, div, p, div, ul, li, ol, dl, dt, dd, h1, h2, h3, h4, h5, h6, pre, code {
   margin: 0;
   padding: 0
 }
+
+body {
+  padding-top: @nav-height;
+  margin: 0;
+  font-family: "Open Sans", Arial, sans-serif;
+  font-weight: 300;
+}
+
 
 ul, li {
   list-style: none
@@ -77,11 +113,6 @@ div.clear {
   height: 0;
   line-height: 0;
   visibility: hidden
-}
-
-body {
-  font-family: "Open Sans", Arial, sans-serif;
-  font-weight: 300;
 }
 
 .top-bar {
@@ -370,16 +401,44 @@ div.center {
 }
 
 img.logo_top{
-  padding: 20px;
-  width: 110px;
+  //width: 110px;
 }
 
 img.prof_top{
   display: inline-block;
-  width: 110px;
-  padding: 20px;
+  //width: 110px;
 }
 
 div.prof_top{
   display:inline-block;
+}
+
+nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: block;
+  height: @nav-height;
+  padding: 20px;
+
+  img {
+    display: inline-block;
+    height: @nav-height - 40px;
+  }
+
+
+}
+
+.middle-align {
+  vertical-align: middle;
+}
+
+.right-align {
+  text-align: right;
+}
+
+.wide {
+  width: 100%;
+  max-width: 100%;
 }
