@@ -98,8 +98,8 @@ module.exports.http = {
     }, verifyHandler));*/
 
     passport.use(new FacebookStrategy({
-      clientID: sails.config.facebook.id || process.env.OPENSHIFT_FACEBOOK_ID,
-      clientSecret: sails.config.facebook.secret || process.env.OPENSHIFT_FACEBOOK_SECRET,
+      clientID: sails.config.apis.facebook.id,
+      clientSecret: sails.config.apis.facebook.secret,
       callbackURL: "http://localhost:1337/auth/facebook/callback"
     }, verifyHandler));
 
