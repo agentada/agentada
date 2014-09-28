@@ -37,7 +37,8 @@ module.exports.routes = {
   },
 
   '/create' : {
-    view : 'home/createitinerary'
+    controller : 'home',
+    action: 'createitinerary'
   },
 
   '/logout' : {

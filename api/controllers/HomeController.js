@@ -15,6 +15,8 @@ module.exports = {
   },
 
   createitinerary: function(req, res) {
-  	res.view();
+  	res.view({
+  		isauth: req.isAuthenticated()
+  	});
   }
 };
