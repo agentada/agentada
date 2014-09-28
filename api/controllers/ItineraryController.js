@@ -46,10 +46,7 @@ module.exports = {
 
   generate: function( req, res ) {
     // TODO: Remove me
-    req.params.startDate = "2014-12-25";
-    req.params.endDate = "2014-12-30";
-    req.params.title = "DANK NUGGETS";
-    req.params.users = [ "5427a1171f84cf94157b834a" ];
+    req.query.users = [ "5427a1171f84cf94157b834a" ];
 
     var aggregates = { };
     var thingsWeCareAbout = ["Movie", "Musician/band"];
@@ -70,14 +67,16 @@ module.exports = {
         } );
 
     var itinerary = {
-      title: req.params.title,
+      title: req.query.title,
       days: []
     };
 
-    var startDate = moment( req.params.startDate ),
-        endDate   = moment( req.params.endDate );
+    var startDate = moment( req.query.startDate ),
+        endDate   = moment( req.query.endDate );
 
     for( var curDate = moment( startDate.toDate() ); curDate <= endDate; curDate.add( 1, 'd' ) ) {
+
+      sails.log.debug( "Creating date for ", curDate.format( "YYYY-MM-DD" ) );
 
       Day.create( {
         date: curDate.toDate(),
