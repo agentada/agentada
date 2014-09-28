@@ -313,24 +313,47 @@ div.center {
   font-size: 18px;
   top: 200px;
 }
-div.button {
+#create {
+  z-index: 100;
+  position: absolute;
+  color: #216BA6;
+  font-size: 18px;
+  top: 200px;
+}
+.button {
   display: inline-block;
   top: 350px;
   width: 300px;
   background-color: #298BDA;
   border-radius: 25px;
 }
-div.button a {
+.button a {
   color: white;
   font-weight: bold;
   text-decoration: none;
 }
-div.button_top a {
+.button_create {
+  display: inline-block;
+  padding: 10px;
+  position: relative;
+  top: 380px;
+  width: 610px;
+  background-color: #298BDA;
+  border-radius: 10px;
+  margin: 8px 0 8px 0;
+}
+.button_create a {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+}
+.button_top p,
+a {
   color: #ffffff;
   font-weight: bold;
   text-decoration: none;
 }
-div.button_top a:hover {
+.button_top a:hover {
   color: #298BDA;
 }
 img.logo_top {
@@ -344,4 +367,18 @@ img.prof_top {
 }
 div.prof_top {
   display: inline-block;
+}
+form.create {
+  position: absolute;
+  text-align: left;
+  top: 180px;
+  left: 50px;
+  display: block;
+}
+input.create_form {
+  display: inline-block;
+}
+input.create_form_lg {
+  display: inline-block;
+  width: 600px;
 }

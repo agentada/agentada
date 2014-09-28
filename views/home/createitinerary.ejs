@@ -2,17 +2,37 @@
   <div class="small-12 columns">
     <div class="center"
       <div id="container">
-          <img id="image" src="../images/about_bg.png"/>
-          <p id="text">
-              Welome to agentada - the first service that creates custom agendas
-              based on the collective interests of your group!
+          <img id="image" src="../images/create_bg.png"/>
+              <form class="create">
+                <div style="float:left;margin-right:20px;">
+                  <label for="users">who</label>
+                  <input type="text" name="users" class="create_form" style="width: 290px;">
+                </div>
+                <div style="float:left;">
+                    <label for="title">what</label>
+                    <input type="text" name="title" class="create_form" style="width: 290px;">
+                </div>
+                <br />
+                <div style="float:left;">
+                    <label for="where">where</label>
+                    <input type="text" name="where" class="create_form_lg">
+                </div>
 
-              <br /> <br />
-              Log in with Facebook to generate your next agenda!
-          </p>
-          <div class="button">
-            <a href="auth/facebook"> Log in with Facebook</a>
-          </div>
+                <div style="float:left;margin-right:20px;">
+                  <label for="startDate">when</label>
+                  <input type="text" name="startDate" class="create_form" style="width: 272px;">
+                </div>
+
+                <div style="float:left;">
+                    <label for="endDate"> &nbsp; </label>
+                    to  &nbsp; &nbsp; <input type="text" name="endDate"
+                    class="create_form" style="width: 272px;">
+                </div>
+              </form>
+              <br />
+                <a href="#" class="button button_create">Create My Agenda</a>
+              <br />
+                <a href="#" class="button button_create">View Saved Agendas</a>
       </div>
     </div>
   </div>
