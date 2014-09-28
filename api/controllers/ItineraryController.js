@@ -148,11 +148,9 @@ module.exports = {
   },
 
   lastfm: function(req, res) {
-    LastFMService.getEventsAt( { 
-      location: "Rochester"
-    }, function(err, loc) {
+    LastFMService.getEventsAt( "Rochester", function(err, loc) {
       if(err) return res.serverError(err);
-
+      //console.log(loc);
       res.json(loc);
     } );
   }

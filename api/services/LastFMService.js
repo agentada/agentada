@@ -11,6 +11,6 @@ module.exports = {
 			path: "/2.0?method=geo.getevents&location=" + location + "&api_key=" + apiKey + "&format=json"
 		};
 
-		RESTService.sendGetRequest(options, callback);
+		RESTService.sendGetRequest(options, cb);
 	}
 };
