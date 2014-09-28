@@ -127,7 +127,7 @@ module.exports = {
             .exec( function( err, itin ) {
               if( err ) return res.serverError( err );
 
-              res.json( itin );
+              res.redirect( '/' );
             } );
         }
       } );
