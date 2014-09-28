@@ -333,6 +333,7 @@ div.center {
   color: #216BA6;
   font-size: 18px;
   top: 200px;
+  margin: 0 70px 0 70px;
 }
 #create {
   z-index: 100;
