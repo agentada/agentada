@@ -1,5 +1,5 @@
 
-<% if(!session.authenticated) { %>
+<% if(!isauth) { %>
 <%- partial ('_about.ejs') %>
 <% } else { %>
 <%- partial ('_viewitineraries.ejs') %>

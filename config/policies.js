@@ -28,8 +28,11 @@ module.exports.policies = {
 
   '*': 'sessionAuth',
 
-  'home': {
+  'auth': {
     '*': true
+  },
+  'home': {
+    'index': true
   }
 
   /***************************************************************************

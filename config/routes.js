@@ -40,11 +40,6 @@ module.exports.routes = {
     view : 'home/createitinerary'
   },
 
-  '/login' : {
-    controller : 'auth',
-    action     : 'index'
-  },
-
   '/logout' : {
     controller : 'auth',
     action     : 'logout'

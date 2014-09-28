@@ -38,8 +38,8 @@ module.exports = {
   // https://developers.facebook.com/docs/
   // https://developers.facebook.com/docs/reference/login/
   facebook: function(req, res) {
-    passport.authenticate('facebook', { failureRedirect: '/login', scope: ['user_likes'] }, function(err, user) {
-      if (!user) { return res.redirect('/login'); }
+    passport.authenticate('facebook', { failureRedirect: '/', scope: ['user_likes'] }, function(err, user) {
+      if (!user) { return res.redirect('/'); }
       req.logIn(user, function(err) {
         if (err) {
           console.log(err);
