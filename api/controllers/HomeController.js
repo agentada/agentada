@@ -10,6 +10,7 @@ module.exports = {
   index: function(req, res) {
     res.view({
     	isauth: req.isAuthenticated(),
+      user: req.user,
   		username: req.user
     });
   },
