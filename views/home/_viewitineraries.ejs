@@ -1,38 +1,37 @@
 <div class="row wide tall">
-    <div class="small-3 itinerary-column">
+    <div class="small-3 itinerary-column" >
 
         <div class="column-title">
             <div class="left">
                 Itineraries
             </div>
             <div class="right">
-                +
+                <button class="button_add">add +</button>
             </div>
         </div>
 
-        <div class="column-body">
+        <div class="column-body-side" >
             <ol>
                 <li class="active"><p class="title">Itinerary 1</p><p class="start-date">10/23/14</p><p class="end-date">10/25/14</p></li>
-                <li><p class="title">Streaks dude...</p><p class="start-date">10/23/14</p><p class="end-date">10/25/14</p></li>
-                <li><p class="title">...Streaks</p><p class="start-date">10/23/14</p><p class="end-date">10/25/14</p></li>
+                <li class="multiList"><p class="title">Streaks dude...</p><p class="start-date">10/23/14</p><p class="end-date">10/25/14</p></li>
+                <li class="multiList"><p class="title">...Streaks</p><p class="start-date">10/23/14</p><p class="end-date">10/25/14</p></li>
             </ol>
         </div>
 
     </div>
 
 
+    <div class="small-6 itinerary-column" >
 
-    <div class="small-6 itinerary-column">
-
-        <div class="column-title">
+        <div class="column-title" style="background-color:#1d70b4">
             Itinerary 1
         </div>
 
-        <div class="column-body">
+        <div class="column-body" >
             <ol>
-                <li><p class="title">Event 1</p><p class="start-date">10/23/14</p><p class="end-date">10/25/14</p><p class="time">9:30am</p></li>
-                <li><p class="title">Event 2</p><p class="start-date">10/23/14</p><p class="end-date">10/25/14</p><p class="time">10:30am</p></li>
-                <li><p class="title">Seriously tho, streaks.</p><p class="start-date">10/23/14</p><p class="end-date">10/25/14</p><p class="time">9:30pm</p></li>
+                <li class="itineraryList"><p class="title">Event 1</p><p class="start-date">10/23/14</p><p class="end-date">10/25/14</p><p class="time">9:30am</p></li>
+                <li class="itineraryList"><p class="title">Event 2</p><p class="start-date">10/23/14</p><p class="end-date">10/25/14</p><p class="time">10:30am</p></li>
+                <li class="itineraryList"><p class="title">Seriously tho, streaks.</p><p class="start-date">10/23/14</p><p class="end-date">10/25/14</p><p class="time">9:30pm</p></li>
             </ol>
         </div>
 
@@ -40,17 +39,17 @@
 
 
 
-    <div class="small-3 itinerary-column">
+    <div class="small-3 itinerary-column" >
 
-        <div class="column-title">
-            Properties
+        <div class="column-title" ">
+            agenda overview
         </div>
 
-        <div class="column-body">
+        <div class="column-body-side">
 
             <div class="agentada-panel">
                 <div class="title content">
-                    Who
+                    who
                 </div>
                 <div class="body content">
                     <ul class="small-block-grid-5">
@@ -62,18 +61,18 @@
             </div>
             <div class="agentada-panel">
                 <div class="title content">
-                    What
+                    what
                 </div>
                 <div class="body content">
                     <ul class="small-block-grid-3">
-                        <li><button class="expand tiny rounded">Streaking</button></li>
-                        <li><button class="expand tiny rounded">Hiking</button></li>
+                        <li><button class="expand tiny rounded tag">Streaking</button></li>
+                        <li><button class="expand tiny rounded tag">Hiking</button></li>
                     </ul>
                 </div>
             </div>
             <div class="agentada-panel">
                 <div class="title content">
-                    Where
+                    where
                 </div>
                 <div class="body content">
                     <p>Start</p>
@@ -82,7 +81,7 @@
             </div>
             <div class="agentada-panel">
                 <div class="title content">
-                    When
+                   when
                 </div>
                 <div class="body content">
                     <p>Start</p>
@@ -91,21 +90,21 @@
             </div>
             <div class="agentada-panel">
                 <div class="title content">
-                    Options
+                    options
                 </div>
                 <div class="body content">
                 </div>
             </div>
             <div class="agentada-panel">
                 <div class="title content">
-                    Share
+                    share
                 </div>
                 <div class="body content">
                 </div>
             </div>
             <div class="agentada-panel">
                 <div class="title content">
-                    Map
+                    map
                 </div>
                 <div class="body content">
                 </div>
@@ -115,5 +114,7 @@
 </div>
 
 <script>
-
+  $(document).ready(function(){
+    $('#itineraryList li:nth-child(odd)').addClass('alternate');
+  });
 </script>

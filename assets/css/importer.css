@@ -13,6 +13,21 @@
  * always omit, customize, or replace this behavior with SASS, SCSS,
  * or any other Grunt tasks you like.)
  */
+.round-image {
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  border: 4px solid #ffffff;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+}
+.block {
+  display: block;
+}
+.inline-block {
+  display: inline-block;
+}
 html,
 body {
   text-align: left;
@@ -20,7 +35,6 @@ body {
   background: #BAE3F8;
 }
 html,
-body,
 img,
 form,
 textarea,
@@ -45,6 +59,12 @@ pre,
 code {
   margin: 0;
   padding: 0;
+}
+body {
+  padding-top: 100px;
+  margin: 0;
+  font-family: "Open Sans", Arial, sans-serif;
+  font-weight: 300;
 }
 ul,
 li {
@@ -85,10 +105,6 @@ div.clear {
   height: 0;
   line-height: 0;
   visibility: hidden;
-}
-body {
-  font-family: "Open Sans", Arial, sans-serif;
-  font-weight: 300;
 }
 .top-bar {
   width: 100%;
@@ -185,10 +201,8 @@ blockquote span {
   font-weight: 600;
   padding-right: 5px;
 }
-.content {
+.content2 {
   padding: 25px 75px 25px 0;
-  width: 70%;
-  float: left;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
@@ -239,7 +253,7 @@ div.links {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   background-color: #f3f5f7;
-  border: 1px solid #ebebeb;
+  border: 5px solid #fff;
   padding: 25px 45px 35px;
 }
 div.links h3 {
@@ -356,16 +370,7 @@ a {
 .button_top a:hover {
   color: #298BDA;
 }
-img.logo_top {
-  padding: 20px;
-  width: 110px;
-}
 img.prof_top {
-  display: inline-block;
-  width: 110px;
-  padding: 20px;
-}
-div.prof_top {
   display: inline-block;
 }
 form.create {
@@ -381,4 +386,174 @@ input.create_form {
 input.create_form_lg {
   display: inline-block;
   width: 600px;
+}
+nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: block;
+  height: 100px;
+  padding: 20px;
+}
+nav img {
+  display: inline-block;
+  height: 60px;
+}
+.middle-align {
+  vertical-align: middle;
+}
+.right-align {
+  text-align: right;
+}
+.wide {
+  width: 100%;
+  max-width: 100%;
+}
+.tall {
+  height: 100%;
+}
+.column-title {
+  width: 100%;
+  height: 40px;
+  padding: 0 10px;
+  font-size: 24px;
+  line-height: 40px;
+  vertical-align: middle;
+  background-color: #777;
+  color: #fff;
+  overflow: hidden;
+  word-wrap: breakword;
+}
+.itinerary-column {
+  position: relative;
+  display: block;
+  float: left;
+  height: 100%;
+  max-height: 100%;
+  background-color: #fff;
+}
+.itinerary-column:nth-child(3) {
+  border: none;
+}
+.itinerary-column .column-title {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 40px;
+  padding: 0 10px;
+  font-size: 18px;
+  line-height: 40px;
+  vertical-align: middle;
+  background-color: #1a5585;
+  color: #fff;
+  overflow: hidden;
+  word-wrap: breakword;
+  z-index: 5;
+}
+.itinerary-column .secondary-title {
+  display: block;
+  width: 100%;
+  height: 24px;
+  padding: 0 10px;
+  font-size: 16px;
+  line-height: 24px;
+  vertical-align: middle;
+  background-color: #888;
+  color: #fff;
+  overflow: hidden;
+  word-wrap: breakword;
+}
+.itinerary-column .column-body,
+.itinerary-column .column-body-side {
+  position: relative;
+  padding-top: 40px;
+  display: block;
+  width: 100%;
+  overflow: auto;
+  height: 100%;
+}
+.itinerary-column .column-body ol li,
+.itinerary-column .column-body-side ol li {
+  display: block;
+  width: 100%;
+  padding: 5px;
+}
+.itinerary-column .column-body ol li:hover,
+.itinerary-column .column-body-side ol li:hover {
+  background-color: #fff;
+  cursor: pointer;
+}
+.itinerary-column .column-body ol li.active,
+.itinerary-column .column-body-side ol li.active {
+  background-color: #3475b2;
+  border-radius: 3px;
+  color: #fff;
+  font-weight: 900;
+  border-bottom: 2px solid #fff;
+  border-top: 2px solid #fff;
+  border-left: 2px solid #fff;
+}
+.itinerary-column .column-body ol li.active:hover,
+.itinerary-column .column-body-side ol li.active:hover {
+  background-color: #3475b2;
+  cursor: default;
+}
+li.itineraryList:nth-child(even) {
+  background-color: #f6fbff;
+}
+li.itineraryList:nth-child(odd) {
+  background-color: #ecf5fd;
+}
+li.multiList:nth-child(even) {
+  background-color: #bedbf7;
+  border-radius: 3px;
+}
+li.multiList:nth-child(odd) {
+  background-color: #9bc7f0;
+  border-radius: 3px;
+  -webkit-box-shadow: 0px 19px 37px -2px rgba(0, 0, 0, 0.28);
+  -moz-box-shadow: 0px 19px 37px -2px rgba(0, 0, 0, 0.28);
+  box-shadow: 0px 19px 37px -2px rgba(0, 0, 0, 0.28);
+}
+.column-body-side {
+  background-color: #1a5585;
+  padding-right: 0px;
+}
+.column-body {
+  padding: 10px;
+  -webkit-box-shadow: -41px -6px 63px -23px rgba(0, 0, 0, 0.34);
+  -moz-box-shadow: -41px -6px 63px -23px rgba(0, 0, 0, 0.34);
+  box-shadow: -41px -6px 63px -23px rgba(0, 0, 0, 0.34);
+}
+.agentada-panel {
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  border-radius: 4px;
+  width: 100%;
+  overflow: hidden;
+}
+.agentada-panel .title {
+  color: #fff;
+  background-color: #216BA6;
+}
+.agentada-panel .body {
+  background-color: #fff;
+}
+.agentada-panel .content {
+  width: 100%;
+  float: none;
+  padding: 5px 10px;
+}
+.tag {
+  background-color: #92D4F5;
+  border-radius: 10px;
+  color: #fff;
+  padding: 2px;
+  font-weight: 800;
+}
+button.button_add {
+  font-size: 18px;
+  padding: 0px 15px 0px 15px;
 }
