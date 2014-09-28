@@ -94,25 +94,25 @@ module.exports.http = {
     /*passport.use(new GitHubStrategy({
       clientID: "YOUR_CLIENT_ID",
       clientSecret: "YOUR_CLIENT_SECRET",
-      callbackURL: "http://localhost:1337/auth/github/callback"
+      callbackURL: sails.config.url+'/auth/github/callback'
     }, verifyHandler));*/
 
     passport.use(new FacebookStrategy({
       clientID: sails.config.apis.facebook.id,
       clientSecret: sails.config.apis.facebook.secret,
-      callbackURL: "http://localhost:1337/auth/facebook/callback"
+      callbackURL: sails.config.url+"/auth/facebook/callback"
     }, verifyHandler));
 
     /*passport.use(new GoogleStrategy({
       clientID: 'YOUR_CLIENT_ID',
       clientSecret: 'YOUR_CLIENT_SECRET',
-      callbackURL: 'http://localhost:1337/auth/google/callback'
+      callbackURL: sails.config.url+'/auth/google/callback'
     }, verifyHandler));*/
 
     /*passport.use(new TwitterStrategy({
       consumerKey: 'YOUR_CLIENT_ID',
       consumerSecret: 'YOUR_CLIENT_SECRET',
-      callbackURL: 'http://localhost:1337/auth/twitter/callback'
+      callbackURL: sails.config.url+'/auth/twitter/callback'
     }, verifyHandler));*/
 
     app.use(passport.initialize());

@@ -68,8 +68,8 @@ module.exports.session = {
   ***************************************************************************/
 
   adapter: 'mongo',
-  host: 'localhost',
-  port: 27017,
+  host: process.env.OPENSHIFT_MONGODB_DB_HOST || 'localhost',
+  port: process.env.OPENSHIFT_MONGODB_DB_PORT || 27017,
   db: 'agentada',
   collection: 'sessions',
 
@@ -82,8 +82,8 @@ module.exports.session = {
   *                                                                          *
   ***************************************************************************/
 
-  // username: '',
-  // password: '',
+  username: process.env.OPENSHIFT_MONGODB_DB_USER,
+  password: process.env.OPENSHIFT_MONGODB_DB_PASSWORD,
   // auto_reconnect: false,
   // ssl: false,
   // stringify: true
