@@ -13,10 +13,12 @@
  * always omit, customize, or replace this behavior with SASS, SCSS,
  * or any other Grunt tasks you like.)
  */
-.round-image {
+.round-image-top {
   border-radius: 50%;
   width: 70px;
   height: 70px;
+  float: right;
+  position: relative;
   border: 4px solid #ffffff;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
@@ -364,14 +366,14 @@ div.center {
 .button_top p,
 a {
   color: #ffffff;
+  top: 12px;
+  right: 10px;
   font-weight: bold;
+  position: relative;
   text-decoration: none;
 }
 .button_top a:hover {
   color: #298BDA;
-}
-img.prof_top {
-  display: inline-block;
 }
 form.create {
   position: absolute;
