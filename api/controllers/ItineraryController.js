@@ -153,6 +153,7 @@ module.exports = {
 
     Itinerary.findOne( req.params.id ).exec( function( err, itin ) {
       if( err ) return res.serverError( err );
+      if( !itin ) return res.badRequest();
 
       Itinerary.getEvents( itin, function( err, events ) {
         if( err ) return res.serverError( err );
