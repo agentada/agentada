@@ -6,27 +6,45 @@
     <!-- Viewport mobile tag for sensible mobile support -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    
-    <!--  
+
+    <!--
         Stylesheets and Preprocessors
         ==============================
 
         You can always bring in CSS files manually with `<link>` tags, or asynchronously
-        using a solution like AMD (RequireJS).  Or, if you like, you can take advantage 
+        using a solution like AMD (RequireJS).  Or, if you like, you can take advantage
         of Sails' conventional asset pipeline (boilerplate Gruntfile).
 
         By default, stylesheets from your `assets/styles` folder are included
         here automatically (between STYLES and STYLES END). Both CSS (.css) and LESS (.less)
         are supported. In production, your styles will be minified and concatenated into
         a single file.
-        
+
         To customize any part of the built-in behavior, just edit `tasks/pipeline.js`.
         For example, here are a few things you could do:
-            
+
             + Change the order of your CSS files
             + Import stylesheets from other directories
             + Use a different or additional preprocessor, like SASS, SCSS or Stylus
     -->
+    <!--SO MANY FAVICONS!!!-->
+    <link rel="apple-touch-icon" sizes="57x57" href="../images/favicons/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="../images/favicons/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="../images/favicons/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="../images/favicons/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="../images/favicons/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="../images/favicons/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="../images/favicons/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="../images/favicons/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../images/favicons/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="../images/favicons/favicon-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="../images/favicons/favicon-160x160.png" sizes="160x160">
+    <link rel="icon" type="image/png" href="../images/favicons/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="../images/favicons/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="../images/favicons/favicon-32x32.png" sizes="32x32">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-TileImage" content="../images/favicons/mstile-144x144.png">
+    <!--End of the fun favicons-->
 
     <!--STYLES-->
     <link rel="stylesheet" href="/styles/foundation.css">
@@ -56,7 +74,7 @@
         By default, your Gruntfile is configured to automatically load and precompile
         client-side JST templates in your `assets/templates` folder, then
         include them here automatically (between TEMPLATES and TEMPLATES END).
-        
+
         To customize this behavior to fit your needs, just edit `tasks/pipeline.js`.
         For example, here are a few things you could do:
 
@@ -67,7 +85,7 @@
     -->
 
     <!--TEMPLATES-->
-    
+
     <!--TEMPLATES END-->
 
 
@@ -77,17 +95,17 @@
       ========================
 
       You can always bring in JS files manually with `script` tags, or asynchronously
-      on the client using a solution like AMD (RequireJS).  Or, if you like, you can 
+      on the client using a solution like AMD (RequireJS).  Or, if you like, you can
       take advantage of Sails' conventional asset pipeline (boilerplate Gruntfile).
 
       By default, files in your `assets/js` folder are included here
       automatically (between SCRIPTS and SCRIPTS END).  Both JavaScript (.js) and
       CoffeeScript (.coffee) are supported. In production, your scripts will be minified
       and concatenated into a single file.
-      
+
       To customize any part of the built-in behavior, just edit `tasks/pipeline.js`.
       For example, here are a few things you could do:
-          
+
           + Change the order of your scripts
           + Import scripts from other directories
           + Use a different preprocessor, like TypeScript
