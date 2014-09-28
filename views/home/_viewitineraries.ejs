@@ -1,4 +1,4 @@
-<div class="row wide tall">
+<div class="row wide tall" ng-controller="ItineraryController" ng-init="init()">
     <div class="small-3 itinerary-column">
 
         <div class="column-title">
@@ -6,15 +6,13 @@
                 Itineraries
             </div>
             <div class="right">
-                +
+                <a href="create">+</a>
             </div>
         </div>
 
         <div class="column-body">
             <ol>
-                <li class="active"><p class="title">Itinerary 1</p><p class="start-date">10/23/14</p><p class="end-date">10/25/14</p></li>
-                <li><p class="title">Streaks dude...</p><p class="start-date">10/23/14</p><p class="end-date">10/25/14</p></li>
-                <li><p class="title">...Streaks</p><p class="start-date">10/23/14</p><p class="end-date">10/25/14</p></li>
+                <li ng-repeat="itinerary in itineraries"><p class="title">{{itinerary.title}}</p><p class="dates">{{itinerary.days[0].date}} - {{itinerary.days[itinerary.days.length-1].date}}</p></li>
             </ol>
         </div>
 
@@ -25,14 +23,12 @@
     <div class="small-6 itinerary-column">
 
         <div class="column-title">
-            Itinerary 1
+            {{currentItinerary.title}}
         </div>
 
         <div class="column-body">
             <ol>
-                <li><p class="title">Event 1</p><p class="start-date">10/23/14</p><p class="end-date">10/25/14</p><p class="time">9:30am</p></li>
-                <li><p class="title">Event 2</p><p class="start-date">10/23/14</p><p class="end-date">10/25/14</p><p class="time">10:30am</p></li>
-                <li><p class="title">Seriously tho, streaks.</p><p class="start-date">10/23/14</p><p class="end-date">10/25/14</p><p class="time">9:30pm</p></li>
+                <li ng-repeat="event in events"><p class="title">{{event.title}}</p><p class="dates">Date &amp; Time: {{event.day.date}}</p><p class="time">Type: {{type}}</p></li>
             </ol>
         </div>
 
@@ -113,7 +109,3 @@
         </div>
     </div>
 </div>
-
-<script>
-
-</script>
