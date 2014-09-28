@@ -1,0 +1,20 @@
+<nav>
+	<div class="left">
+		<img class="logo_top" src="../images/logo_mini.png">
+	</div>
+	<div class="right">
+		<div class="prof_top">
+			<% if(!isauth) { %>
+				<div class="button_top">
+					<a href="auth/facebook">Log in</a>
+				</div>
+			<% } else { %>
+				<p>My Account</p>
+				<a href="/logout">Log out</a>
+			<% } %>
+
+		</div>
+		<img class="prof_top" src="<%= !isauth ? '../images/user_prof.png'
+																					 : 'http://graph.facebook.com/v2.1/'+user.uid+'/picture?type=normal' %>" />
+	</div>
+</nav>

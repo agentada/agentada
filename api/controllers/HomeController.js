@@ -8,14 +8,17 @@
 module.exports = {
 
   index: function(req, res) {
-  	User.findOne( req.user.id )
-  		.populate( 'interests' )
-  		.exec( function( err, user ) {
-  			if( err ) return res.serverError( err );
+    res.view({
+    	isauth: req.isAuthenticated(),
+      user: req.user,
+  		username: req.user
+    });
+  },
 
-		    res.view({
-		      user: user
-		    });
-  		} );
+  createitinerary: function(req, res) {
+  	res.view({
+  		isauth: req.isAuthenticated(),
+      user: req.user
+  	});
   }
 };
