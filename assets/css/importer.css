@@ -320,3 +320,28 @@ div.button {
   background-color: #298BDA;
   border-radius: 25px;
 }
+div.button a {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+}
+div.button_top a {
+  color: #ffffff;
+  font-weight: bold;
+  text-decoration: none;
+}
+div.button_top a:hover {
+  color: #298BDA;
+}
+img.logo_top {
+  padding: 20px;
+  width: 110px;
+}
+img.prof_top {
+  display: inline-block;
+  width: 110px;
+  padding: 20px;
+}
+div.prof_top {
+  display: inline-block;
+}
