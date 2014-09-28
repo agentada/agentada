@@ -27,7 +27,15 @@ module.exports = {
           // response available as `responseData` in `yourview`
           cb( null, JSON.parse( responseData ) );
         } catch ( err ) {
-          return cb( err, null );
+
+          if( options.host === "ws.audioscrobbler.com" )
+          {
+            return cb( null, responseData );
+          } 
+          else 
+          {
+            return cb( err, null ); 
+          }
         }
       } );
     } ).end();

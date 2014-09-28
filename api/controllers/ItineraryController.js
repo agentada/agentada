@@ -48,24 +48,6 @@ module.exports = {
     // TODO: Remove me
     req.query.users = [ "5427a1171f84cf94157b834a" ];
 
-    var aggregates = { };
-    var thingsWeCareAbout = ["Movie", "Musician/band"];
-    User.find(  )
-        .populate( 'interests' )
-        .exec( function( err, myUsrs ) {
-          myUsrs.forEach( function( usr ) {
-            thingsWeCareAbout.forEach( function( thing ) {
-              if( !aggregates.hasOwnProperty( thing ) )
-                aggregates[ thing ] = 0;
-
-              sails.log.debug(usr.interests[0], thing);
-              aggregates[ thing ] += usr.interests[0][ thing ] / myUsrs.length;
-            } );
-          } );
-
-          sails.log.debug( aggregates );
-        } );
-
     var itinerary = {
       title: req.query.title,
       days: []
@@ -87,16 +69,56 @@ module.exports = {
 
         itinerary.days.push( date.id );
 
-        //TODO: Generate events
-        Event.create( {
-          title: "BUTT-TASTROPHE",
-          day: date.id,
-          users: req.params.users,
-          type: 'custom'
-        } )
-        .exec( function( err, event ) {
-          if( err ) return res.serverError( err );
-        } );
+        var aggregates = { };
+        var thingsWeCareAbout = ["Movie", "Musician/band"];
+        User.find(  )
+            .populate( 'interests' )
+            .exec( function( err, myUsrs ) {
+              myUsrs.forEach( function( usr ) {
+                thingsWeCareAbout.forEach( function( thing ) {
+                  if( !aggregates.hasOwnProperty( thing ) )
+                    aggregates[ thing ] = 0;
+
+                  aggregates[ thing ] += usr.interests[0][ thing ] / myUsrs.length;
+                } );
+              } );
+
+              // get Last.fm concert list
+              LastFMService.getEventsAt("Ithaca,NY", function(err, concerts) {
+                sails.log.debug(concerts);
+                if(err) throw err;
+                for( var i = 0; i < 10; ++i)
+                {
+                  if( i < aggregates["Movie"] / 10 )
+                  {
+                    // Movie
+                    Event.create( {
+                      title: "Movie",
+                      day: date.id,
+                      users: req.params.users,
+                      type: 'custom'
+                    } )
+                    .exec( function( err, event ) {
+                      if( err ) return res.serverError( err );
+                    } );
+                  }
+                  else
+                  {
+                    // Concert
+                    Event.create( {
+                      title: concerts.events.event[i].title,
+                      day: date.id,
+                      users: req.params.users,
+                      location: concerts.events.event[i].venue.location,
+                      type: 'custom'
+                    } )
+                    .exec( function( err, event ) {
+                      if( err ) return res.serverError( err );
+                    } );
+                  }
+                }
+              });
+            });
 
         if( itinerary.days.length == ( endDate.date() - startDate.date() ) ) {
 
@@ -165,7 +187,7 @@ module.exports = {
   },
 
   lastfm: function(req, res) {
-    LastFMService.getEventsAt( "Rochester", function(err, loc) {
+    LastFMService.getEventsAt( "Ithaca,NY", function(err, loc) {
       if(err) return res.serverError(err);
       //console.log(loc);
       res.json(loc);
