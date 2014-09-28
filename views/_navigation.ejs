@@ -1,12 +1,19 @@
 <nav>
 	<div class="left">
-		<p>Agentada (Logo)<p>
+		<img class="logo_top" src="../images/logo_mini.png">
 	</div>
 	<div class="right">
-		<% if(!isauth) { %>
-			<p>Log in</p>
-		<% } else { %>
-			<p>My Account</p>
-		<% } %>
+		<div class="prof_top">
+			<% if(!isauth) { %>
+				<div class="button_top">
+					<a href="auth/facebook">Log in</a>
+				</div>
+			<% } else { %>
+				<p>My Account</p>
+				<a href="/logout">Log out</a>
+			<% } %>
+
+		</div>
+		<img class="prof_top" src="../images/user_prof.png">
 	</div>
 </nav>
