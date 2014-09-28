@@ -131,5 +131,19 @@ module.exports = {
     } );
 
     sails.log.debug( "Rhining..." );
+  },
+
+  fandango: function( req, res ) {
+    FandangoService.callFandango( {}, sails.log.debug );
+  },
+
+  foursquare: function( req, res ) {
+    FoursquareService.exploreVenues( {
+      ll: "46,-70"
+    }, function( err, venues ) {
+      if( err ) return res.serverError( err );
+
+      res.json( venues );
+    } );
   }
 };
