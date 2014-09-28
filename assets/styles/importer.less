@@ -440,12 +440,103 @@ nav {
   width: 100%;
   max-width: 100%;
 }
+.tall {
+  height: 100%;
+}
+
+.column-title {
+  width: 100%;
+  height: 40px;
+  padding: 0 10px;
+  font-size: 24px;
+  line-height: 40px;
+  vertical-align: middle;
+  background-color: #777;
+  color: #fff;
+  overflow: hidden;
+  word-wrap: breakword;
+}
+
+.itinerary-column {
+  position: relative;
+  display: block;
+  float: left;
+  height: 100%;
+  max-height: 100%;
+  background-color: #fff;
+  border-right: solid 1px #333;
+  &:nth-child(3){
+    border: none;
+  }
+
+  .column-title {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 40px;
+    padding: 0 10px;
+    font-size: 24px;
+    line-height: 40px;
+    vertical-align: middle;
+    background-color: #444;
+    color: #fff;
+    overflow: hidden;
+    word-wrap: breakword;
+    z-index: 5;
+  }
+
+  .secondary-title {
+    display: block;
+    width: 100%;
+    height: 24px;
+    padding: 0 10px;
+    font-size: 16px;
+    line-height: 24px;
+    vertical-align: middle;
+    background-color: #888;
+    color: #fff;
+    overflow: hidden;
+    word-wrap: breakword;
+  }
+
+  .column-body {
+    position: relative;
+    padding-top: 40px;
+    display: block;
+    width: 100%;
+    overflow: auto;
+    height: 100%;
+
+    ol {
+      li {
+        display: block;
+        width: 100%;
+        padding: 5px;
+        border-bottom: 1px solid #aaa;
+        &:last-child {
+          //border: none;
+        }
+        &:hover {
+          background-color: #ddd;
+          cursor: pointer;
+        }
+        &.active {
+          background-color: #ccc;
+          &:hover {
+            background-color: #ccc;
+            cursor: default;
+          }
+        }
+      }
+    }
+  }
+}
 
 .agentada-panel {
   .border-radius(4px);
   width: 100%;
   overflow: hidden;
-  margin-bottom: 20px;
+  //-bottom: 20px;
 
   & .title {
     //position: absolute;
@@ -461,6 +552,6 @@ nav {
   & .content {
     width: 100%;
     float: none;
-    padding: 5px;
+    padding: 5px 10px;
   }
 }
