@@ -145,5 +145,15 @@ module.exports = {
 
       res.json( venues );
     } );
+  },
+
+  lastfm: function(req, res) {
+    LastFMService.getEventsAt( { 
+      location: "Rochester"
+    }, function(err, loc) {
+      if(err) return res.serverError(err);
+
+      res.json(loc);
+    } );
   }
 };
