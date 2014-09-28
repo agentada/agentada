@@ -1,20 +1,20 @@
-<nav>
-	<div class="left">
-		<img class="logo_top" src="../images/logo_mini.png">
-	</div>
-	<div class="right">
-		<div class="prof_top">
-			<% if(!isauth) { %>
-				<div class="button_top">
-					<a href="auth/facebook">Log in</a>
-				</div>
-			<% } else { %>
-				<p>My Account</p>
-				<a href="/logout">Log out</a>
-			<% } %>
+<nav class="row wide">
+    <div class="left">
+        <img src="../images/text_logo_mini.png">
+    </div>
+    <div class="right top-align">
+        <% if(!isauth) { %>
+            <div class="button_top inline-block right-align">
+            <br />
+                <a href="auth/facebook">Log in</a>
+            </div>
+        <% } else { %>
+         <div class="button_top inline-block right-align">
+                <p><%= user.name %></p>
+                <a href="/logout">Log out</a>
+            </div>
+        <% } %>
 
-		</div>
-		<img class="prof_top" src="<%= !isauth ? '../images/user_prof.png'
-																					 : 'http://graph.facebook.com/v2.1/'+user.uid+'/picture?type=normal' %>" />
-	</div>
+        <img src="<%= !isauth ? '../images/user_prof.png' : 'http://graph.facebook.com/v2.1/'+user.uid+'/picture?type=normal' %>" class="round-image" />
+    </div>
 </nav>

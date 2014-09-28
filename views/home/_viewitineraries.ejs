@@ -1,5 +1,110 @@
-<div class="row">
-  <div class="small-12 columns">
-    Your itineraries.
-  </div>
+<div class="row wide tall" ng-controller="ItineraryController" ng-init="init()">
+    <div class="small-3 itinerary-column">
+
+        <div class="column-title">
+            <div class="left">
+                Itineraries
+            </div>
+            <div class="right">
+                <button class="button_add">add +</button>
+            </div>
+        </div>
+
+        <div class="column-body-side" >
+            <ol>
+                <li ng-repeat="itinerary in itineraries" class="multiList"><p class="title">{{itinerary.title}}</p><p class="dates">{{itinerary.days[0].date}} - {{itinerary.days[itinerary.days.length-1].date}}</p></li>
+            </ol>
+        </div>
+
+    </div>
+
+
+    <div class="small-6 itinerary-column" style="background-color:#1d70b4">
+
+        <div class="column-title">
+            {{currentItinerary.title}}
+        </div>
+
+        <div class="column-body" >
+            <ol>
+                <li ng-repeat="event in events"><p class="title">{{event.title}}</p><p class="dates">Date &amp; Time: {{event.day.date}}</p><p class="time">Type: {{type}}</p></li>
+            </ol>
+        </div>
+
+    </div>
+
+
+
+    <div class="small-3 itinerary-column">
+
+        <div class="column-title">
+            agenda overview
+        </div>
+
+        <div class="column-body-side">
+
+            <div class="agentada-panel">
+                <div class="title content">
+                    who
+                </div>
+                <div class="body content">
+                    <ul class="small-block-grid-5">
+                        <li><a href="#"><img src="http://i.imgur.com/3R2McZq.jpg" class="round-image"/></a></li>
+                        <li><a href="#"><img src="http://i.imgur.com/3R2McZq.jpg" class="round-image"/></a></li>
+                        <li><a href="#"><img src="http://i.imgur.com/3R2McZq.jpg" class="round-image"/></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="agentada-panel">
+                <div class="title content">
+                    what
+                </div>
+                <div class="body content">
+                    <ul class="small-block-grid-3">
+                        <li><button class="expand tiny rounded tag">Streaking</button></li>
+                        <li><button class="expand tiny rounded tag">Hiking</button></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="agentada-panel">
+                <div class="title content">
+                    where
+                </div>
+                <div class="body content">
+                    <p>Start</p>
+                    <p>End</p>
+                </div>
+            </div>
+            <div class="agentada-panel">
+                <div class="title content">
+                   when
+                </div>
+                <div class="body content">
+                    <p>Start</p>
+                    <p>End</p>
+                </div>
+            </div>
+            <div class="agentada-panel">
+                <div class="title content">
+                    options
+                </div>
+                <div class="body content">
+                </div>
+            </div>
+            <div class="agentada-panel">
+                <div class="title content">
+                    share
+                </div>
+                <div class="body content">
+                </div>
+            </div>
+            <div class="agentada-panel">
+                <div class="title content">
+                    map
+                </div>
+                <div class="body content">
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
