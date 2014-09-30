@@ -4,17 +4,22 @@
     </div>
     <div class="right top-align">
         <% if(!isauth) { %>
-            <div class="button_top inline-block right-align">
-            <br />
+            <div class="nav-text inline-block right-align">
                 <a href="auth/facebook">Log in</a>
             </div>
+            <div class="inline-block">
+                <img src="../images/user_prof.png" class="round-image" />
+            </div>
         <% } else { %>
-         <div class="button_top inline-block right-align">
-                <p><%= user.name %></p>
+            <div class="inline-block" style="float: right;">
+                <img src="<%= 'http://graph.facebook.com/v2.1/'+user.uid+'/picture?type=normal' %>" class="round-image" />
+            </div>
+            <p class="nav-text inline-block right-align" style="float: right; margin-right: 5px;">
+                <%= user.name %> <br />
                 <a href="/logout">Log out</a>
             </div>
+            
         <% } %>
-
-        <img src="<%= !isauth ? '../images/user_prof.png' : 'http://graph.facebook.com/v2.1/'+user.uid+'/picture?type=normal' %>" class="round-image" />
+        
     </div>
 </nav>
